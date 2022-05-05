@@ -6,6 +6,8 @@ Technical challenge to enter the Rooftop community.
 
 Clone the repository and install the dependencies by entering 'npm install' in the console.
 
+All commits have a description that explains what changed and why it changed.
+
 In 'index.js' enter the array you want and then run the 'npm start' command. You will see the result in the console.
 
 ## Test
