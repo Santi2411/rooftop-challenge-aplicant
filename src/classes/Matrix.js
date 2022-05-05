@@ -10,8 +10,13 @@ module.exports = class Matrix {
   }
 
   setMatrix(matrix) {
-    if (!this.checkIfValid(matrix)) throw new Error("Invalid matrix");
-    if (this.checkIfEmpty(matrix)) throw new Error("Empty matrix");
+    if (!Array.isArray(matrix)) throw new Error("Enter a valid matrix");
+    if (!this.checkIfValid(matrix))
+      throw new Error(
+        "Invalid matrix - Rows must have the same number of elements"
+      );
+    if (this.checkIfEmpty(matrix))
+      throw new Error("Empty matrix - No rows entered");
     this.matrix = matrix;
     this.rows = this.matrix.length;
     this.columns = this.matrix[0].length;
@@ -44,7 +49,9 @@ module.exports = class Matrix {
   }
 
   checkIfMainDiagonalIsValid(mainDiagonal) {
-    return mainDiagonal.length === this.columns;
+    if (this.columns == this.rows || this.columns < this.rows) return mainDiagonal.length === this.columns;
+    else return mainDiagonal.length === this.rows;
+    
   }
 
   checkIfValid(matrix) {
